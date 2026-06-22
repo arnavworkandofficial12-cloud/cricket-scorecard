@@ -1,0 +1,391 @@
+/* ============================================
+   CRICKET SCORECARD — Design System
+   Clean athletic minimal: light blue + scarlet/pink accent
+   ============================================ */
+
+:root {
+    /* Palette */
+    --ice-blue: #EAF5F9;
+    --sky-blue: #2D9CDB;
+    --sky-blue-dark: #1B7FB8;
+    --scarlet: #E63946;
+    --scarlet-dark: #C5283D;
+    --blush: #FFE5E9;
+    --ink: #16213E;
+    --ink-soft: #4A5568;
+    --cloud: #FFFFFF;
+    --line: #D7E8EF;
+    --gold: #F2C14E;
+
+    /* Type */
+    --font-display: 'Arial Narrow', 'Helvetica Neue Condensed', Arial, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Scale */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 40px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--ice-blue);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+#root {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--space-4) var(--space-3) var(--space-5);
+    min-height: 100vh;
+}
+
+/* ===== Headings ===== */
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 var(--space-2) 0;
+    color: var(--ink);
+}
+
+h1 {
+    font-size: 2.2rem;
+    line-height: 1.1;
+    color: var(--scarlet);
+    margin-bottom: var(--space-2);
+}
+
+h2 {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    border-left: 4px solid var(--sky-blue);
+    padding-left: var(--space-2);
+    margin-top: var(--space-4);
+}
+
+h3 {
+    font-size: 0.9rem;
+    color: var(--ink);
+    font-weight: 700;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: var(--space-2);
+}
+
+/* Page title */
+.page-title {
+    font-size: 1.6rem;
+    color: var(--ink);
+    border-bottom: 4px solid var(--scarlet);
+    padding-bottom: var(--space-2);
+    margin-top: 0;
+    margin-bottom: var(--space-3);
+    border-left: none;
+    padding-left: 0;
+}
+
+/* The live scoreboard number */
+.scoreboard {
+    font-size: 1.6rem;
+    color: var(--ink);
+    background: var(--cloud);
+    border: 2px solid var(--ink);
+    border-left: 6px solid var(--scarlet);
+    border-radius: var(--radius-sm);
+    padding: var(--space-3);
+    text-align: center;
+    letter-spacing: 0.04em;
+}
+
+.batter-line {
+    font-size: 1.5rem;
+    border-left-color: var(--ink-soft);
+    color: var(--ink);
+    text-transform: none;
+    font-weight: 700;
+}
+
+.wicket-count {
+    display: none;
+    /* raw wicket number is redundant with scoreboard; keep DOM, hide visually */
+}
+
+/* ===== Buttons ===== */
+
+button {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    background: var(--cloud);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: var(--radius-sm);
+    padding: 10px 16px;
+    margin: 4px 6px 4px 0;
+    cursor: pointer;
+    transition: transform 0.08s ease, background 0.15s ease, color 0.15s ease;
+}
+
+button:hover {
+    background: var(--ink);
+    color: var(--cloud);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--sky-blue);
+    outline-offset: 2px;
+}
+
+/* Run buttons — light blue family */
+.btn-run {
+    border-color: var(--sky-blue);
+    color: var(--sky-blue-dark);
+}
+
+.btn-run:hover {
+    background: var(--sky-blue);
+    color: var(--cloud);
+}
+
+/* Extras (wide/no-ball/bye) — quieter, neutral */
+.btn-extra {
+    border-color: var(--line);
+    color: var(--ink-soft);
+    font-size: 0.75rem;
+    padding: 8px 12px;
+}
+
+.btn-extra:hover {
+    background: var(--ink-soft);
+    border-color: var(--ink-soft);
+    color: var(--cloud);
+}
+
+/* Primary CTA */
+.btn-primary {
+    background: var(--scarlet);
+    color: var(--cloud);
+    border-color: var(--scarlet);
+}
+
+.btn-primary:hover {
+    background: var(--scarlet-dark);
+    border-color: var(--scarlet-dark);
+}
+
+/* Secondary action (End Innings) */
+.btn-secondary {
+    background: var(--cloud);
+    color: var(--ink);
+    border-color: var(--ink);
+}
+
+/* Wicket — danger */
+.btn-wicket {
+    background: var(--scarlet);
+    color: var(--cloud);
+    border-color: var(--scarlet);
+    font-size: 0.95rem;
+    padding: 12px 28px;
+    display: block;
+    margin: var(--space-3) 0;
+}
+
+.btn-wicket:hover {
+    background: var(--scarlet-dark);
+}
+
+/* Team picker buttons on setup screen */
+.btn-team {
+    background: var(--cloud);
+    border-color: var(--line);
+    color: var(--ink-soft);
+}
+
+.btn-team-selected {
+    background: var(--scarlet);
+    border-color: var(--scarlet);
+    color: var(--cloud);
+}
+
+/* ===== Inputs ===== */
+
+input[type="text"],
+input[type="number"],
+select {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    padding: 10px 14px;
+    margin: 4px 8px 12px 0;
+    border: 2px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--cloud);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--sky-blue);
+}
+
+input::placeholder {
+    color: #A0AEC0;
+}
+
+/* ===== Layout blocks ===== */
+
+.setup-screen {
+    background: var(--cloud);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    margin-top: var(--space-4);
+    box-shadow: 0 2px 16px rgba(22, 33, 62, 0.06);
+}
+
+.target-box {
+    background: var(--blush);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    margin: var(--space-2) 0;
+}
+
+.target-box h3 {
+    color: var(--scarlet-dark);
+}
+
+.win-banner {
+    background: var(--ink);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+    text-align: center;
+    margin: var(--space-4) 0;
+}
+
+.win-banner h1 {
+    color: var(--gold);
+}
+
+.bowler-section {
+    background: var(--cloud);
+    border: 2px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    margin: var(--space-2) 0;
+}
+
+.button-group {
+    margin-bottom: var(--space-2);
+}
+
+.batter-history h2,
+.bowler-history h2 {
+    font-size: 0.8rem;
+    text-transform: none;
+    font-weight: 600;
+    border-left-color: var(--line);
+    color: var(--ink-soft);
+    margin-top: var(--space-1);
+}
+
+/* Free hit alert */
+.free-hit-alert {
+    background: var(--blush);
+    color: var(--scarlet) !important;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    text-align: center;
+    font-size: 1.2rem;
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.65;
+    }
+}
+
+/* ===== Misc text ===== */
+
+p {
+    color: var(--ink-soft);
+    line-height: 1.5;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--sky-blue);
+    border-radius: 4px;
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 400px) {
+
+    h1,
+    .page-title {
+        font-size: 1.7rem;
+    }
+
+    button {
+        padding: 9px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+/* ===== Reduced motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+select.bowler-select {
+    color: #000;
+    background-color: #fff;
+}
+
+select.bowler-select option {
+    color: #000;
+    background-color: #fff;
+}
